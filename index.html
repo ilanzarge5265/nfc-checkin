@@ -1,24 +1,23 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Tap to Check In</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NFC Check-In</title>
   <script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="script.js" defer></script>
 </head>
 <body>
   <h1>Tap to Check In</h1>
 
-  <!-- Google Sign-In -->
+  <!-- Google Sign-In Button -->
   <div id="g_id_onload"
        data-client_id="498450826209-an7e1lrac4f0o632il3u3vr17oeqoh79.apps.googleusercontent.com"
-       data-callback="handleCredentialResponse"
-       data-auto_prompt="false">
+       data-callback="handleCredentialResponse">
   </div>
-
   <div class="g_id_signin" data-type="standard"></div>
 
-  <!-- 👇 Message display -->
-  <div id="checkin-message" style="margin-top: 20px; font-size: 1.2em;"></div>
+  <!-- Feedback Message -->
+  <div id="checkin-message"></div>
 </body>
 </html>
