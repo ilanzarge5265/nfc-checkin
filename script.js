@@ -6,7 +6,7 @@ function handleCredentialResponse(response) {
 
   console.log("✅ Sending to Sheets:", name, email, timestamp); // Debugging line
 
-  fetch("https://script.google.com/macros/s/AKfyc.../exec", {
+  fetch("https://script.google.com/macros/s/AKfycbwfyndRDH1amvxlEPtSN2fatvtoC_41QF3Z9HSjLbxEWU3mIt_Wc3OuSG-lPGernT9hNg/exec", {
     method: "POST",
     headers: {
       "Content-Type": "application/json"
