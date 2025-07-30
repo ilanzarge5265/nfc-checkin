@@ -1,28 +1,26 @@
-// Called automatically after successful sign-in
+// This function is called when the user signs in with Google
 function handleCredentialResponse(response) {
-  const data = parseJwt(response.credential);  // decode the JWT token
+  const data = parseJwt(response.credential);  // decode the JWT token from Google
   const name = data.name;
   const email = data.email;
 
-  // Display success message to user
+  // Show user confirmation on the page
   document.getElementById("response").innerText =
-    `Welcome, ${name}! You've been signed in.`;
+    `✅ Welcome, ${name}! You’ve been signed in.`;
 
-  // Send data to backend logger (Google Sheets)
-  fetch("https://script.google.com/macros/s/YOUR_SCRIPT_ID/exec", {
-    method: "POST",
-    body: JSON.stringify({
-      name: name,
-      email: email,
-      timestamp: new Date().toISOString()
-    }),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  });
+  // OPTIONAL: Send data to Google Sheets or Firebase (add below if needed)
+  // fetch("https://your-logging-endpoint.com", {
+  //   method: "POST",
+  //   headers: { "Content-Type": "application/json" },
+  //   body: JSON.stringify({
+  //     name: name,
+  //     email: email,
+  //     timestamp: new Date().toISOString()
+  //   })
+  // });
 }
 
-// Helper: Decode JWT token returned by Google
+// Helper function to decode JWT (ID token)
 function parseJwt(token) {
   const base64Url = token.split('.')[1];
   const base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
