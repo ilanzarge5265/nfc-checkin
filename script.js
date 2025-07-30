@@ -8,16 +8,17 @@ function handleCredentialResponse(response) {
   document.getElementById("response").innerText =
     `✅ Welcome, ${name}! You’ve been signed in.`;
 
-  // OPTIONAL: Send data to Google Sheets or Firebase (add below if needed)
-  // fetch("https://your-logging-endpoint.com", {
-  //   method: "POST",
-  //   headers: { "Content-Type": "application/json" },
-  //   body: JSON.stringify({
-  //     name: name,
-  //     email: email,
-  //     timestamp: new Date().toISOString()
-  //   })
-  // });
+fetch("https://script.google.com/macros/s/AKfycbwfyndRDH1amvxlEPtSN2fatvtoC_41QF3Z9HSjLbxEWU3mIt_Wc3OuSG-lPGernT9hNg/exec", {
+  method: "POST",
+  headers: {
+    "Content-Type": "application/json"
+  },
+  body: JSON.stringify({
+    name: name,
+    email: email,
+    timestamp: new Date().toISOString()
+  })
+});
 }
 
 // Helper function to decode JWT (ID token)
